@@ -273,4 +273,17 @@ class Classebiblica_Public
 		$this->readingPlan = new Reading_Plan();
 		return $this->readingPlan->render();
 	}
+
+	public function my_custom_override_iframe_template_styles () {
+		wp_enqueue_style(
+			'givewp-iframes-styles',
+			plugin_dir_url(__FILE__) . 'css/givewp-iframes-styles.css',
+			/**
+			 *  Below, use give-sequoia-template-css to style the multi-step donation form
+			 *  or use give-donor-dashboards-app to style the donor dashboard
+			 */
+			'give-donor-dashboards-app'
+		);	
+		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,400;0,700;1,400;1,700&display=swap', false );
+	}
 }

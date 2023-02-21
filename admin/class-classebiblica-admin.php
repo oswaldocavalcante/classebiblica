@@ -212,9 +212,9 @@ class Classebiblica_Admin {
 		$replacable['{testing_email_notice}']	= '';
 		$replacable['{profile_url}'] 			= tutor_utils()->profile_url( $user_id, false );
 		$replacable['{dashboard_url}']        	= tutor_utils()->get_tutor_dashboard_page_permalink();
-		$replacable['{email_heading}']        	= 'Boas vindas!';
+		$replacable['{email_heading}']        	= 'Boas vindas à Classe Bíblica!';
 		$replacable['{user_name}']           	= $user_content->user_firstname;
-		$replacable['{email_message}'] 		 	= 'Sua conta foi criada na Classe Bíblica.org e a seguir estão suas credenciais de acesso:';
+		$replacable['{email_message}'] 		 	= 'Sua conta foi criada na ClasseBiblica.org e a seguir estão suas credenciais de acesso:';
 		$replacable['{student_username}']     	= $user_content->user_login;
 		$replacable['{student_email}']       	= $user_content->user_email;
 		$replacable['{footer_text}']      	    = 'Se precisar redefinir sua senha, <a href="https://classebiblica.org/painel/retrieve-password" target="_blank" rel="noopener noreferrer">clique aqui</a>.';

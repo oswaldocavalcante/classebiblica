@@ -1,0 +1,74 @@
+:root {
+    --cb-font-1: "Muli", sans-serif;
+    --cb-font-2: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --cb-font-color: #585656;
+    --cb-color-1: #00929C;
+    --cb-color-2: #00485E;
+    --cb-color-bg: #EFF1F6;
+}
+
+div#give-donor-dashboard {
+    font-family: "Muli", sans-serif !important;
+    max-width: 100% !important;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-desktop-layout {
+    background: unset;
+    box-shadow: unset;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-donor-info {
+
+    grid-template-columns: 96px 1fr auto;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-donor-info__avatar .give-donor-dashboard-donor-info__avatar-container {
+    height: 96px;
+    width: 96px;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-desktop-layout__tab-menu {
+    background: unset;
+    padding-top: 25px;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-desktop-layout__tab-menu .give-donor-dashboard-tab-link {
+    border-left: unset;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px 0 0 5px;
+    color: var(--cb-color-2) !important;
+    font-size: 16px;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-desktop-layout__tab-menu .give-donor-dashboard-tab-link:hover {
+    background-color: #00929c2d;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-desktop-layout__tab-menu a.give-donor-dashboard-tab-link.give-donor-dashboard-tab-link--is-active {
+    background-color: var(--cb-color-1);
+    color: #fff !important;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-heading {
+    color: var(--cb-color-2) !important;
+    margin-bottom: 20px;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-dashboard__stats {
+    background: unset;
+    padding: unset;
+    border: unset;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-dashboard__stat {
+    box-shadow: 0 0 20px rgba(0 0 0 / 3%);
+    border: unset;
+    margin-bottom: 15px;
+    padding: 35px;
+}
+
+div#give-donor-dashboard .give-donor-dashboard-donation-receipt__table {
+    background-color: #fff;
+}

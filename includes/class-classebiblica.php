@@ -212,6 +212,8 @@ class Classebiblica {
 		//translate de slug courses to 'cursos'
 		$this->loader->add_filter( 'register_post_type_args', $plugin_public, 'cb_course_register_post_type_args', 10, 2 );
 
+		//enqueue css to donor dashboard of Give plugin
+		$this->loader->add_action('wp_print_styles', $plugin_public, 'my_custom_override_iframe_template_styles', 10);
 	}
 
 	/**
