@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:     Classe Bíblica
  * Plugin URI:     	https://github.com/oswaldocavalcante/classebiblica-plugin
- * Update URI:		https://classebiblica.org/wp-content/plugins/plugins-info.json
+ * Update URI:		https://github.com/oswaldocavalcante/classebiblica-plugin
  * Description:     Plugin que adiciona funcionalidades para a plataforma classebiblica.org
  * Version:         2.1.0
  * Author:          Oswaldo Cavalcante
@@ -69,7 +69,9 @@ define( 'CLASSEBIBLICA_VERSION', '2.1.0' );
 // }
 
 // Include our updater file
-include_once( plugin_dir_path( __FILE__ ) . 'includes/class-classebiblica-updater.php');
+if( ! class_exists( 'Classebiblica_Updater' ) ){
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-classebiblica-updater.php';
+}
 
 $updater = new Classebiblica_Updater( __FILE__ ); // instantiate our class
 $updater->set_username( 'oswaldocavalcante' ); // set username

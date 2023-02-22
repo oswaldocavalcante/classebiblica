@@ -56,56 +56,70 @@ class Classebiblica_Updater {
         $this->authorize_token = $token;
     }
 
-    private function get_repository_info() {
-        if ( is_null( $this->github_response ) ) { // Do we have a response?
+	private function get_repository_info() {
+	    if ( is_null( $this->github_response ) ) { // Do we have a response?
+		$args = array();
+	        $request_uri = sprintf( 'https://api.github.com/repos/%s/%s/releases', $this->username, $this->repository ); // Build URI
+		    
+		$args = array();
 
-            $request_uri = sprintf( 'https://api.github.com/repos/%s/%s/releases', $this->username, $this->repository ); // Build URI
-            if( $this->authorize_token ) { // Is there an access token?
-                $request_uri = add_query_arg( 'access_token', $this->authorize_token, $request_uri ); // Append it
-            }
+	        if( $this->authorize_token ) { // Is there an access token?
+		          $args['headers']['Authorization'] = "bearer {$this->authorize_token}"; // Set the headers
+	        }
 
-            $response = json_decode( wp_remote_retrieve_body( wp_remote_get( $request_uri ) ), true ); // Get JSON and parse it
-            if( is_array( $response ) ) { // If it is an array
-                $response = current( $response ); // Get the first item
-            }
+	        $response = json_decode( wp_remote_retrieve_body( wp_remote_get( $request_uri, $args ) ), true ); // Get JSON and parse it
 
-            if( $this->authorize_token ) { // Is there an access token?
-                $response['zipball_url'] = add_query_arg( 'access_token', $this->authorize_token, $response['zipball_url'] ); // Update our zip url with token
-            }
+	        if( is_array( $response ) ) { // If it is an array
+	            $response = current( $response ); // Get the first item
+	        }
 
-            $this->github_response = $response; // Set it to our property  
-        }
-    }
+	        $this->github_response = $response; // Set it to our property
+	    }
+	}
     
-    public function initialize() {
-        add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'modify_transient' ), 10, 1 );
-        add_filter( 'plugins_api', array( $this, 'plugin_popup' ), 10, 3);
-        add_filter( 'upgrader_post_install', array( $this, 'after_install' ), 10, 3 );
-    }
+	public function initialize() {
+		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'modify_transient' ), 10, 1 );
+		add_filter( 'plugins_api', array( $this, 'plugin_popup' ), 10, 3);
+		add_filter( 'upgrader_post_install', array( $this, 'after_install' ), 10, 3 );
+		
+		// Add Authorization Token to download_package
+		add_filter( 'upgrader_pre_download',
+			function() {
+				add_filter( 'http_request_args', [ $this, 'download_package' ], 15, 2 );
+				return false; // upgrader_pre_download filter default return value.
+			}
+		);
+	}
 
-    public function modify_transient( $transient ) {
+	public function modify_transient( $transient ) {
 
-        if( property_exists( $transient, 'checked') ) { // Check if transient has a checked property
-            if( $checked = $transient->checked ) { // Did WordPress check for updates?
-            $this->get_repository_info(); // Get the repo info
-            
-            $out_of_date = version_compare( $this->github_response['tag_name'], $checked[$this->basename], 'gt' ); // Check if we're out of date
-                if( $out_of_date ) {
-                    $new_files = $this->github_response['zipball_url']; // Get the ZIP
-                    $slug = current( explode('/', $this->basename ) ); // Create valid slug
-                    $plugin = array( // setup our plugin info
-                        'url' => $this->plugin["PluginURI"],
-                        'slug' => $slug,
-                        'package' => $new_files,
-                        'new_version' => $this->github_response['tag_name']
-                    );
-                    $transient->response[ $this->basename ] = (object) $plugin; // Return it in response
-                }
-            }
-        }
-        
-        return $transient; // Return filtered transient
-    }
+		if( property_exists( $transient, 'checked') ) { // Check if transient has a checked property
+
+			if( $checked = $transient->checked ) { // Did Wordpress check for updates?
+				$this->get_repository_info(); // Get the repo info
+
+				$out_of_date = version_compare( $this->github_response['tag_name'], $checked[ $this->basename ], 'gt' ); // Check if we're out of date
+
+				if( $out_of_date ) {
+
+					$new_files = $this->github_response['zipball_url']; // Get the ZIP
+
+					$slug = current( explode('/', $this->basename ) ); // Create valid slug
+
+					$plugin = array( // setup our plugin info
+						'url' => $this->plugin["PluginURI"],
+						'slug' => $slug,
+						'package' => $new_files,
+						'new_version' => $this->github_response['tag_name']
+					);
+
+					$transient->response[$this->basename] = (object) $plugin; // Return it in response
+				}
+			}
+		}
+
+		return $transient; // Return filtered transient
+	}
 
     public function plugin_popup( $result, $action, $args ) {
         if( ! empty( $args->slug ) ) { // If there is a slug
@@ -133,17 +147,31 @@ class Classebiblica_Updater {
         return $result; // Otherwise return default
     }
 
-    public function after_install( $response, $hook_extra, $result ) {
-        global $wp_filesystem; // Get global FS object
+	public function download_package( $args, $url ) {
 
-        $install_directory = plugin_dir_path( $this->file ); // Our plugin directory 
-        $wp_filesystem->move( $result['destination'], $install_directory ); // Move files to the plugin dir
-        $result['destination'] = $install_directory; // Set the destination for the rest of the stack
+		if ( null !== $args['filename'] ) {
+			if( $this->authorize_token ) { 
+				$args = array_merge( $args, array( "headers" => array( "Authorization" => "token {$this->authorize_token}" ) ) );
+			}
+		}
+		
+		remove_filter( 'http_request_args', [ $this, 'download_package' ] );
 
-        if ( $this->active ) { // If it was active
-            activate_plugin( $this->basename ); // Reactivate
-        }
-        return $result;
-    }
+		return $args;
+	}
+
+	public function after_install( $response, $hook_extra, $result ) {
+		global $wp_filesystem; // Get global FS object
+
+		$install_directory = plugin_dir_path( $this->file ); // Our plugin directory
+		$wp_filesystem->move( $result['destination'], $install_directory ); // Move files to the plugin dir
+		$result['destination'] = $install_directory; // Set the destination for the rest of the stack
+
+		if ( $this->active ) { // If it was active
+			activate_plugin( $this->basename ); // Reactivate
+		}
+
+		return $result;
+	}
 
 }
