@@ -17,7 +17,7 @@
  * Plugin URI:     	https://classebiblica.org/
  * Update URI:		https://classebiblica.org/wp-content/plugins/plugins-info.json
  * Description:     Plugin que adiciona funcionalidades para a plataforma classebiblica.org
- * Version:         2.0.0
+ * Version:         2.1.0
  * Author:          Oswaldo Cavalcante
  * Author URI:      https://oswaldocavalcante.com
  * License:         GPL-2.0+
@@ -36,37 +36,45 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CLASSEBIBLICA_VERSION', '2.0.0' );
+define( 'CLASSEBIBLICA_VERSION', '2.1.0' );
 
-/**
- * For updating
- */
-if( ! function_exists( 'my_plugin_check_for_updates' ) ){
+// /**
+//  * For updating
+//  */
+// if( ! function_exists( 'my_plugin_check_for_updates' ) ){
     
-    function my_plugin_check_for_updates( $update, $plugin_data, $plugin_file ){
+//     function my_plugin_check_for_updates( $update, $plugin_data, $plugin_file ){
         
-        static $response = false;
+//         static $response = false;
         
-        if( empty( $plugin_data['UpdateURI'] ) || ! empty( $update ) )
-            return $update;
+//         if( empty( $plugin_data['UpdateURI'] ) || ! empty( $update ) )
+//             return $update;
         
-        if( $response === false )
-            $response = wp_remote_get( $plugin_data['UpdateURI'] );
+//         if( $response === false )
+//             $response = wp_remote_get( $plugin_data['UpdateURI'] );
         
-        if( empty( $response['body'] ) )
-            return $update;
+//         if( empty( $response['body'] ) )
+//             return $update;
         
-        $custom_plugins_data = json_decode( $response['body'], true );
+//         $custom_plugins_data = json_decode( $response['body'], true );
         
-        if( ! empty( $custom_plugins_data[ $plugin_file ] ) )
-            return $custom_plugins_data[ $plugin_file ];
-        else
-            return $update;
+//         if( ! empty( $custom_plugins_data[ $plugin_file ] ) )
+//             return $custom_plugins_data[ $plugin_file ];
+//         else
+//             return $update;
         
-    }
+//     }
     
-    add_filter('update_plugins_classebiblica.org', 'my_plugin_check_for_updates', 10, 3);
-}
+//     add_filter('update_plugins_classebiblica.org', 'my_plugin_check_for_updates', 10, 3);
+// }
+
+// Include our updater file
+include_once( plugin_dir_path( __FILE__ ) . 'includes/class-classebiblica-updater.php');
+
+$updater = new Classebiblica_Updater( __FILE__ ); // instantiate our class
+$updater->set_username( 'oswaldocavalcante' ); // set username
+$updater->set_repository( 'classebiblica-plugin' ); // set repository
+$updater->initialize(); // initialize the updater
 
 /**
  * The code that runs during plugin activation.

@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Classebiblica
  * @subpackage Classebiblica/includes
- * @author     Oswaldo Cavalcante <jocmail@gmail.com>
+ * @author     Oswaldo Cavalcante <contato@oswaldocavalcante.com>
  */
 class Classebiblica {
 
