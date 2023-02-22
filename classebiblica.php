@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:     Classe Bíblica
- * Plugin URI:     	https://classebiblica.org/
+ * Plugin URI:     	https://github.com/oswaldocavalcante/classebiblica-plugin
  * Update URI:		https://classebiblica.org/wp-content/plugins/plugins-info.json
  * Description:     Plugin que adiciona funcionalidades para a plataforma classebiblica.org
  * Version:         2.1.0
