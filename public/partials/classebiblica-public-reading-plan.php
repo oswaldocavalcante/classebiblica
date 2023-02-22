@@ -333,7 +333,7 @@ class Reading_Plan
     public function render() {
         return '
             <div class="cb_rp_container">
-                <div class="cb_rp_date">' . strftime('%A, %d de %B de %Y', strtotime('today')) . '</div>
+                <div class="cb_rp_date">' . esc_attr(strftime('%A, %d de %B de %Y', strtotime('today'))) . '</div>
                 <div class="cb_rp_bible_reference_container">
                     <span class="cb_rp_bible_reference_title">Capítulo de hoje: </span>
                     <span class="cb_rp_bible_reference">' . $this->bibleReference . '</span></div>
