@@ -74,207 +74,230 @@ class Reading_Plan
                 'chapters' => 24
             ),
             '1Rs' => array (
-                'name' => '1º Reis',
+                'name' => '1 Reis',
                 'chapters' => 22
             ),
             '2Rs' => array (
-                'name' => '2º Reis',
+                'name' => '2 Reis',
                 'chapters' => 25
             ),
             '1Cr' => array (
-                'name' => '1º Crônicas',
+                'name' => '1 Crônicas',
                 'chapters' => 29
             ),
             '2Cr' => array (
-                'name' => '2º Crônicas',
+                'name' => '2 Crônicas',
                 'chapters' => 36
             ),
             'Ed' => array (
                 'name' => 'Esdras',
                 'chapters' => 10
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ne' => array (
+                'name' => 'Neemias',
+                'chapters' => 13
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Et' => array (
+                'name' => 'Ester',
+                'chapters' => 10
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Jó' => array (
+                'name' => 'Jó',
+                'chapters' => 42
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Sl' => array (
+                'name' => 'Salmos',
+                'chapters' => 150
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Pv' => array (
+                'name' => 'Provérbios',
+                'chapters' => 31
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ec' => array (
+                'name' => 'Eclesiastes',
+                'chapters' => 12
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ct' => array (
+                'name' => 'Cânticos',
+                'chapters' => 8
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Is' => array (
+                'name' => 'Isaías',
+                'chapters' => 66
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Jr' => array (
+                'name' => 'Jeremias',
+                'chapters' => 52
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Lm' => array (
+                'name' => 'Lamentações',
+                'chapters' => 5
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ez' => array (
+                'name' => 'Ezequiel',
+                'chapters' => 48
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Dn' => array (
+                'name' => 'Daniel',
+                'chapters' => 12
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Os' => array (
+                'name' => 'Oséias',
+                'chapters' => 14
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Jl' => array (
+                'name' => 'Joel',
+                'chapters' => 3
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Am' => array (
+                'name' => 'Amós',
+                'chapters' => 9
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ob' => array (
+                'name' => 'Obadias',
+                'chapters' => 1
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Jn' => array (
+                'name' => 'Jonas',
+                'chapters' => 4
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Mq' => array (
+                'name' => 'Miquéias',
+                'chapters' => 7
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Na' => array (
+                'name' => 'Naum',
+                'chapters' => 3
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Hc' => array (
+                'name' => 'Habacuque',
+                'chapters' => 3
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Sf' => array (
+                'name' => 'Sofonias',
+                'chapters' => 3
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ag' => array (
+                'name' => 'Ageu',
+                'chapters' => 2
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Zc' => array (
+                'name' => 'Zacarias',
+                'chapters' => 14
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ml' => array (
+                'name' => 'Malaquias',
+                'chapters' => 4
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Mt' => array (
+                'name' => 'Mateus',
+                'chapters' => 28
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Mc' => array (
+                'name' => 'Marcos',
+                'chapters' => 16
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Lc' => array (
+                'name' => 'Lucas',
+                'chapters' => 24
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Jo' => array (
+                'name' => 'João',
+                'chapters' => 21
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'At' => array (
+                'name' => 'Atos',
+                'chapters' => 28
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Rm' => array (
+                'name' => 'Romanos',
+                'chapters' => 16
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '1Co' => array (
+                'name' => '1 Coríntios',
+                'chapters' => 16
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '2Co' => array (
+                'name' => '2 Coríntios',
+                'chapters' => 13
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Gl' => array (
+                'name' => 'Gálatas',
+                'chapters' => 6
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Ef' => array (
+                'name' => 'Efésios',
+                'chapters' => 6
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Fp' => array (
+                'name' => 'Filipenses',
+                'chapters' => 4
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Cl' => array (
+                'name' => 'Colossenses',
+                'chapters' => 4
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '1Ts' => array (
+                'name' => '1 Tessalonicenses',
+                'chapters' => 5
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '1Ts' => array (
+                'name' => '2 Tessalonicenses',
+                'chapters' => 3
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '1Tm' => array (
+                'name' => '1 Timóteo',
+                'chapters' => 6
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '2Tm' => array (
+                'name' => '2 Timóteo',
+                'chapters' => 4
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Tt' => array (
+                'name' => 'Tito',
+                'chapters' => 3
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Fm' => array (
+                'name' => 'Filemon',
+                'chapters' => 1
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Hb' => array (
+                'name' => 'Hebreus',
+                'chapters' => 13
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            'Tg' => array (
+                'name' => 'Tiago',
+                'chapters' => 5
             ),
-            'Ab' => array (
-                'name' => 'Nome',
-                'chapters' => 99
+            '1Pe' => array (
+                'name' => '1 Pedro',
+                'chapters' => 5
+            ),
+            '2Pe' => array (
+                'name' => '2 Pedro',
+                'chapters' => 3
+            ),
+            '1Jo' => array (
+                'name' => '1 João',
+                'chapters' => 5
+            ),
+            '2Jo' => array (
+                'name' => '2 João',
+                'chapters' => 1
+            ),
+            '3Jo' => array (
+                'name' => '3 João',
+                'chapters' => 1
+            ),
+            'Jd' => array (
+                'name' => 'Judas',
+                'chapters' => 1
+            ),
+            'Ap' => array (
+                'name' => 'Apocalipse',
+                'chapters' => 22
             )
-        );            
-
+        );
     }
 
     public function get_chapter_html( $chapterContent ){
