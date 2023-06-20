@@ -17,7 +17,7 @@
  * Plugin URI:     	https://github.com/oswaldocavalcante/classebiblica-plugin
  * Update URI:		https://github.com/oswaldocavalcante/classebiblica-plugin
  * Description:     Plugin que adiciona funcionalidades para a plataforma classebiblica.org
- * Version:         2.1.3
+ * Version:         2.2.1
  * Author:          Oswaldo Cavalcante
  * Author URI:      https://oswaldocavalcante.com
  * License:         GPL-2.0+
@@ -36,7 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CLASSEBIBLICA_VERSION', '2.1.3' );
+define( 'CLASSEBIBLICA_VERSION', '2.2.1' );
 
 // /**
 //  * For updating
