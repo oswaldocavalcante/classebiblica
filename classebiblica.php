@@ -68,7 +68,7 @@ define( 'CLASSEBIBLICA_VERSION', '2.1.3' );
 //     add_filter('update_plugins_classebiblica.org', 'my_plugin_check_for_updates', 10, 3);
 // }
 
-// Include our updater file
+// Include Updater file
 if( ! class_exists( 'Classebiblica_Updater' ) ){
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-classebiblica-updater.php';
 }
