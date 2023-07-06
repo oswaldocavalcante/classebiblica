@@ -114,9 +114,8 @@ class Classebiblica_Public
 	 */
 	public function cb_course_register_post_type_args ( $args, $post_type ) {
 
-		if ( 'courses' === $post_type ) {
-			$args['rewrite']['slug'] = 'curso'; //here add your new slug
-		}
+		if ( 'courses' === $post_type ) $args['rewrite']['slug'] = 'curso'; //here add your new slug
+		
 		return $args;
 	}
 
@@ -193,13 +192,14 @@ class Classebiblica_Public
 		');
 	}
 
-	public function cb_group_modal($course_id, $isEnrolled) {
+	public function cb_group_modal( $course_id, $isEnrolled ) {
 
 		$value = get_post_meta( $course_id, '_cb_course_group_field', true );
 		if ( $value != '') {
 			?>
 				<script>
 					function cbStudentGroupModal() {
+
 						var cbModalContent = '<div id="cb-tutor-student-group" class="tutor-modal">' +
 							'<span class="tutor-modal-overlay"></span>' +
 							'<div class="tutor-modal-window">' +
@@ -221,7 +221,7 @@ class Classebiblica_Public
 						'</div>';
 
 						document.getElementById("page").insertAdjacentHTML("beforebegin",cbModalContent);
-						console.log("Modal adicionada");
+
 						cbModalVisible();
 					}
 
